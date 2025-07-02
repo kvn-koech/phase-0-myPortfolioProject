@@ -1,7 +1,5 @@
 # My Personal Website
 
-![Website Preview](https://via.placeholder.com/800x400?text=My+Personal+Website+Preview)
-
 A responsive personal portfolio website built with HTML, CSS, and JavaScript to showcase my skills and projects.
 
 ## Features
@@ -14,7 +12,7 @@ A responsive personal portfolio website built with HTML, CSS, and JavaScript to 
 - **Clean UI** with modern styling
 - **Three Main Sections**:
   - About Me (with profile picture)
-  - Projects (with toggleable details)
+  - Hobbies (with toggleable details)
   - Contact Form
 
 ## Technologies Used
