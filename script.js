@@ -3,7 +3,7 @@ document.querySelectorAll('.details-btn').forEach(button => {
   button.addEventListener('click', () => {
       const details = button.nextElementSibling;
       details.classList.toggle('hidden');
-      button.textContent = details.classList.contains('hidden') ? 'Show Details' : 'Hide Details';
+      button.textContent = details.classList.contains('hidden') ? 'Show Details': 'Hide Details';
   });
 });
 
@@ -20,7 +20,7 @@ document.getElementById('contact-form').addEventListener('submit', (e) => {
   console.log('Form submitted:', { name, email, message });
   
   // Show a confirmation to the user
-  alert('Thank you for your message! I will get back to you soon.');
+  alert('Thank you for your message! I will get back to you soon!');
   
   // Reset the form
   e.target.reset();
