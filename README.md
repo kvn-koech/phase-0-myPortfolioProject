@@ -7,7 +7,7 @@ A responsive personal portfolio website built with HTML, CSS, and JavaScript to 
 - **Responsive Design**: Works on mobile, tablet, and desktop
 
 - **Interactive Elements**:
-  - Expandable project details
+  - Expandable Hobbies details
   - Form validation
   - Hover effects
     
