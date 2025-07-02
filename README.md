@@ -10,7 +10,7 @@ A responsive personal portfolio website built with HTML, CSS, and JavaScript to 
   - Expandable project details
   - Form validation
   - Hover effects
-  - 
+    
 - **Three Main Sections**:
   - About Me (with profile picture)
   - Hobbies (with toggleable details)
