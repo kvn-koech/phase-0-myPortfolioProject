@@ -33,7 +33,7 @@ Or visit the live version on GitHub Pages: Live Demo
 
 ## Author
 Kevin Koech
-Email: [kevinkoech007@gmail.com]
+Email: [kevinkoech007@gmail.com]  
 userName: [kvn-koech]
 
 ## License
