@@ -5,11 +5,12 @@ A responsive personal portfolio website built with HTML, CSS, and JavaScript to 
 ## Features
 
 - **Responsive Design**: Works on mobile, tablet, and desktop
+- 
 - **Interactive Elements**:
   - Expandable project details
   - Form validation
   - Hover effects
-- **Clean UI** with modern styling
+  - 
 - **Three Main Sections**:
   - About Me (with profile picture)
   - Hobbies (with toggleable details)
@@ -29,15 +30,6 @@ A responsive personal portfolio website built with HTML, CSS, and JavaScript to 
 2. Open index.html in your browser
 
 Or visit the live version on GitHub Pages: Live Demo
-
-## Modify colors in CSS:
-
-css
-:root {
-  --primary-color: #35424a;
-  --secondary-color: #4e6575;
-  --background-color: #f4f4f4;
-}
 
 ## Author
 Kevin Koech
