@@ -11,7 +11,8 @@ body {
   border-radius: 50%;
   border: 3px solid #35424a;
   width: 100px;  
-  height: 100px; 
+  height: 100px;
+  border: 3px solid #35424a;
 }
 
 header {
@@ -48,11 +49,6 @@ main {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.profile-img {
-  border-radius: 50%;
-  border: 3px solid #35424a;
 }
 
 .Hobbies {
