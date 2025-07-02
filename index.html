@@ -1,11 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Website</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Personal Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="profile-container">
+                <img src="WhatsApp Image 2024-10-29 at 21.34.34.jpeg" alt="Profile Picture" class="profile-img">
+                <p>Hi! My name is Kevin Koech. I'm a web developer passionate about creating interactive and user-friendly websites. 
+                I enjoy learning new technologies and solving problems through code.</p>
+            </div>
+        </section>
+
+        <section id="Hobbies">
+            <h2>Personal Hobbies</h2>
+            <div class="Hobbies" id="Hobbies">
+                <h3>What I like to do</h3>
+                <p>1. Swimming</p>
+                <p>2. Cycling</p>
+                <p>3. Watching movies</p>
+                <p>4. Nature walks</p>
+                <button class="details-btn">Show More Details</button>
+                <div class="Hobbies hidden">
+                    <p>On other occasions, I like to play football.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Personal Website</p>
+    </footer>
+
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
