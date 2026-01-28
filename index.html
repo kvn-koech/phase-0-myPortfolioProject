@@ -3,72 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="istockphoto-1432956286-612x612.jpg" type="image/x-jpg">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
+    <title>Kevin Koech | Software Developer & Statistician</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="istockphoto-1432956286-612x612.jpg" type="image/x-jpg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Personal Website</h1>
-        <nav>
-            <ul>
+    <header id="home">
+        <nav class="navbar">
+            <div class="logo">Kevin Koech</div>
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
+        <div class="hero">
+            <div class="hero-content">
+                <img src="WhatsApp Image 2024-10-29 at 21.34.34.jpeg" alt="Kevin Koech" class="profile-img">
+                <h1>Kevin Koech</h1>
+                <h2>Software Developer | Statistician</h2>
+                <p>Building data-driven digital solutions.</p>
+                <div class="social-links">
+                    <a href="https://github.com/kvn-koech" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:kevinkoech007@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <!-- Add LinkedIn if available, standard placeholder for now if user didn't provide -->
+                </div>
+                <a href="#contact" class="cta-btn">Get in Touch</a>
+            </div>
+        </div>
     </header>
 
     <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="profile-container">
-                <img src="WhatsApp Image 2024-10-29 at 21.34.34.jpeg" alt="Profile Picture" class="profile-img">
-                <p>Hi! My name is Kevin Koech. I'm a web developer passionate about creating interactive and user-friendly websites. 
-                I enjoy learning new technologies and solving problems through code.</p>
-            </div>
-        </section>
-
-        <section id="Hobbies">
-            <h2>Personal Hobbies</h2>
-            <div class="Hobbies" id="Hobbies">
-                <h3>What I like to do</h3>
-                <p>1. Swimming</p>
-                <p>2. Cycling</p>
-                <p>3. Watching movies</p>
-                <p>4. Nature walks</p>
-                <button class="details-btn">Show More Details</button>
-                <div class="Hobbies hidden">
-                    <p>On other occasions I like to play football.</p>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Professional Summary</h2>
+                <p class="summary-text">
+                    Motivated Software Developer with a strong background in Statistics and hands-on experience building full-stack applications using React.js and Python (Flask). Skilled in breaking down complex problems, interpreting data, and designing user-friendly digital solutions. Highly adaptable, fast-learning, and committed to writing clean, efficient code. Seeking a Software Developer internship or entry-level engineering role to contribute to real-world projects while continuing to sharpen my technical expertise.
+                </p>
+                
+                <div class="personal-details">
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kenya</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+254 713 721 669</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Send Message</button>
-            </form>
+        <section id="skills" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li>React.js</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>Responsive UI</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-server"></i>
+                        <h3>Backend</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>Flask</li>
+                            <li>REST APIs</li>
+                            <li>SQL Alchemy</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Data & Stats</h3>
+                        <ul>
+                            <li>Regression Analysis</li>
+                            <li>Hypothesis Testing</li>
+                            <li>Data Visualization</li>
+                            <li>Insight Generation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools</h3>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>VS Code</li>
+                            <li>Postman</li>
+                            <li>NPM / Yarn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Matatu Connect</h3>
+                            <p class="tech-stack">React • JavaScript • CSS</p>
+                            <p>A digital solution for the transport sector.</p>
+                            <a href="https://github.com/kvn-koech" target="_blank" class="project-link">View Code <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Car Rental System</h3>
+                            <p class="tech-stack">Python • SQL Alchemy</p>
+                            <p>A management system for car rentals, handling bookings and inventory.</p>
+                            <a href="https://github.com/kvn-koech" target="_blank" class="project-link">View Code <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>Personal Portfolio</h3>
+                            <p class="tech-stack">HTML • CSS • JavaScript</p>
+                            <p>This responsive portfolio website showcasing my skills and projects.</p>
+                            <a href="https://github.com/kvn-koech" target="_blank" class="project-link">View Code <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Experience & Education</h2>
+                <div class="timeline">
+                    <!-- Experience -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">Oct 2023 – Mar 2024</div>
+                        <div class="timeline-content">
+                            <h3>Elif Safaris Limited</h3>
+                            <h4>Intern</h4>
+                            <ul>
+                                <li>Maintained business records and digital data.</li>
+                                <li>Assisted with client communications and operational support.</li>
+                                <li>Strengthened organizational, teamwork, and documentation skills.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 2022 – Apr 2022</div>
+                        <div class="timeline-content">
+                            <h3>County Government of Nakuru</h3>
+                            <h4>Statistics Attaché</h4>
+                            <ul>
+                                <li>Analyzed departmental financial data and generated reports.</li>
+                                <li>Created visual summaries aiding decision-making.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Education -->
+                    <div class="timeline-divider">Education</div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Mar 2025 – Jan 2026</div>
+                        <div class="timeline-content">
+                            <h3>Moringa School</h3>
+                            <h4>Software Development Program</h4>
+                            <p>Hands-on training in full-stack web development, pair programming, and agile workflows.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2017 – 2022</div>
+                        <div class="timeline-content">
+                            <h3>JKUAT – Main Campus</h3>
+                            <h4>B.Sc. in Statistics</h4>
+                            <p>Strong foundation in mathematical modeling & data interpretation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="hobbies" class="section">
+             <div class="container">
+                <h2 class="section-title">Hobbies & Interests</h2>
+                <div class="hobbies-container">
+                    <span class="hobby-tag">Swimming</span>
+                    <span class="hobby-tag">Cycling</span>
+                    <span class="hobby-tag">Movies</span>
+                    <span class="hobby-tag">Nature Walks</span>
+                    <span class="hobby-tag">Football</span>
+                </div>
+             </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title">Contact Me</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 My Personal Website</p>
+        <div class="container">
+            <p>&copy; 2026 Kevin Koech. All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
 </body>
 </html>
