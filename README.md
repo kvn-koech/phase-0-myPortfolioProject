@@ -33,7 +33,8 @@ Or visit the live version on GitHub Pages: Live Demo
 
 ## Author
 Kevin Koech
-github[kevinkoech007@gmail.com]
+Email: [kevinkoech007@gmail.com]  
+userName: [kvn-koech]
 
 ## License
 This project is open source and available under the MIT License.
