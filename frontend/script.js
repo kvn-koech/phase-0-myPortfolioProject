@@ -61,20 +61,36 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(style);
 });
 
-// Form Submission Handler (Mock)
+// Form Submission Handler
 document.getElementById('contact-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    const btn = e.target.querySelector('button');
+    const form = e.target;
+    const btn = form.querySelector('button');
     const originalText = btn.textContent;
     
     btn.textContent = 'Sending...';
     btn.disabled = true;
     
-    // Simulate network request
-    setTimeout(() => {
-        alert('Thank you for your message! I will get back to you soon.');
-        e.target.reset();
+    const formData = new FormData(form);
+
+    fetch("/api/contact", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            alert('Thank you for your message! I will get back to you soon.');
+            form.reset();
+        } else {
+            alert('Oops! There was a problem submitting your form.');
+        }
+    })
+    .catch(error => {
+        alert('Oops! There was a problem submitting your form.');
+    })
+    .finally(() => {
         btn.textContent = originalText;
         btn.disabled = false;
-    }, 1500);
+    });
 });
