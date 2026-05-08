@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail, Message
 from datetime import datetime
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Base directories
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -16,6 +20,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASE_DIR, 'p
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
+# Email Configuration
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
+
+mail = Mail(app)
 
 # --- Database Models ---
 class ContactMessage(db.Model):
@@ -62,8 +76,17 @@ def handle_contact():
         
         print(f"New contact saved: {name} - {email}")
         
-        # In the future, we can add email sending logic here
-        # using Flask-Mail or an API like Resend/SendGrid
+        # Send email notification
+        if app.config['MAIL_USERNAME'] and app.config['MAIL_PASSWORD']:
+            msg = Message(
+                subject=f"New Portfolio Contact from {name}",
+                recipients=[os.environ.get('RECEIVER_EMAIL', app.config['MAIL_USERNAME'])],
+                body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+            )
+            mail.send(msg)
+            print("Email notification sent successfully.")
+        else:
+            print("Warning: Email credentials not set in .env. Email not sent.")
         
         return jsonify({"success": True, "message": "Message saved successfully!"}), 201
 
