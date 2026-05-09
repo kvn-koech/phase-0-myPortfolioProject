@@ -7,8 +7,6 @@ import os
 import re
 import threading
 from dotenv import load_dotenv
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 
 load_dotenv()
 
@@ -18,14 +16,6 @@ FRONTEND_DIR = os.path.join(BASE_DIR, '..', 'frontend')
 
 app = Flask(__name__, static_folder=FRONTEND_DIR, static_url_path='')
 CORS(app)
-
-# Rate Limiter Configuration
-limiter = Limiter(
-    get_remote_address,
-    app=app,
-    default_limits=["200 per day", "50 per hour"],
-    storage_uri="memory://"
-)
 
 # Database Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASE_DIR, 'portfolio.db')
@@ -77,7 +67,6 @@ def serve_index():
     return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/contact', methods=['POST'])
-@limiter.limit("5 per minute")
 def handle_contact():
     """Endpoint to handle contact form submissions."""
     # Data can come as JSON or Form Data depending on how fetch is called
