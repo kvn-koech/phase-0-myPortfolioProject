@@ -4,7 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
 from datetime import datetime
 import os
+import re
+import threading
 from dotenv import load_dotenv
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 load_dotenv()
 
@@ -14,6 +18,14 @@ FRONTEND_DIR = os.path.join(BASE_DIR, '..', 'frontend')
 
 app = Flask(__name__, static_folder=FRONTEND_DIR, static_url_path='')
 CORS(app)
+
+# Rate Limiter Configuration
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["200 per day", "50 per hour"],
+    storage_uri="memory://"
+)
 
 # Database Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASE_DIR, 'portfolio.db')
@@ -30,6 +42,18 @@ app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
 
 mail = Mail(app)
+
+def send_async_email(app, msg):
+    with app.app_context():
+        try:
+            mail.send(msg)
+            print("Email notification sent successfully.")
+        except Exception as e:
+            print(f"Failed to send email: {e}")
+
+def is_valid_email(email):
+    regex = r'^\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b$'
+    return re.match(regex, email)
 
 # --- Database Models ---
 class ContactMessage(db.Model):
@@ -53,6 +77,7 @@ def serve_index():
     return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/contact', methods=['POST'])
+@limiter.limit("5 per minute")
 def handle_contact():
     """Endpoint to handle contact form submissions."""
     # Data can come as JSON or Form Data depending on how fetch is called
@@ -67,6 +92,9 @@ def handle_contact():
 
     if not name or not email or not message:
         return jsonify({"success": False, "error": "Missing required fields"}), 400
+
+    if not is_valid_email(email):
+        return jsonify({"success": False, "error": "Invalid email address"}), 400
 
     try:
         # Save to database
@@ -83,8 +111,9 @@ def handle_contact():
                 recipients=[os.environ.get('RECEIVER_EMAIL', app.config['MAIL_USERNAME'])],
                 body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
             )
-            mail.send(msg)
-            print("Email notification sent successfully.")
+            # Run in background thread
+            thread = threading.Thread(target=send_async_email, args=(app, msg))
+            thread.start()
         else:
             print("Warning: Email credentials not set in .env. Email not sent.")
         

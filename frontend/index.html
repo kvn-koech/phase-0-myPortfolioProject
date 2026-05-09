@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kevin Koech | Software Developer & Statistician</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="istockphoto-1432956286-612x612.jpg" type="image/x-jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/favicon.jpg" type="image/x-jpg">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,15 +24,18 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
         </nav>
         <div class="hero">
             <div class="hero-content">
-                <img src="WhatsApp Image 2024-10-29 at 21.34.34.jpeg" alt="Kevin Koech" class="profile-img">
+                <img src="assets/images/profile.jpeg" alt="Kevin Koech" class="profile-img">
                 <h1>Kevin Koech</h1>
-                <h2>Software Developer | Statistician</h2>
+                <h2 class="typing-text">Software Developer | Statistician</h2>
                 <p>Building data-driven digital solutions.</p>
                 <div class="social-links">
                     <a href="https://github.com/kvn-koech" target="_blank"><i class="fab fa-github"></i></a>
@@ -241,6 +244,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <div id="toast-container" class="toast-container"></div>
+    <script src="js/script.js"></script>
 </body>
 </html>
